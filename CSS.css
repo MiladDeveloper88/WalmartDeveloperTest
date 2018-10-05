@@ -1,0 +1,15 @@
+section {
+  width: 500px;
+  margin: 10px auto;
+}
+
+td img {
+  width: 100px;
+  height: auto;
+}
+
+.buy {
+  background-color: yellow;
+  padding: 4px;
+  border-radius: 4px;
+}

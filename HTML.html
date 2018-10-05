@@ -1,0 +1,53 @@
+<!--My code works good with no error in this site https://codepen.io-->
+
+<section ng-app="app" ng-controller="MainCtrl">
+  <span class="label">Ordered By: {{orderByField}}, Reverse Sort: {{reverseSort}}</span><br><br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
+          <a href="#" ng-click="orderByField='name'; reverseSort = !reverseSort">
+          Name <span ng-show="orderByField == 'name'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#" ng-click="orderByField='name'; reverseSort = !reverseSort">
+          Picture <span ng-show="orderByField == 'picture'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#" ng-click="orderByField='make'; reverseSort = !reverseSort">
+            Make<span ng-show="orderByField == 'make'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#" ng-click="orderByField='model'; reverseSort = !reverseSort">
+          Model <span ng-show="orderByField == 'model'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+		<th>
+          <a href="#" ng-click="orderByField='availability'; reverseSort = !reverseSort">
+          Availability <span ng-show="orderByField == 'availability'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+		<th>
+          <a href="#" ng-click="orderByField='buy'; reverseSort = !reverseSort">
+            
+          Buy <span ng-show="orderByField == 'buy'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          
+       </a>
+        </th>
+		
+    </thead>
+    <tbody>
+      <tr ng-repeat="datalist in data.cars|orderBy:orderByField:reverseSort">
+        <td>{{datalist.name}}</td>
+        <td><img src={{datalist.picture}} /></td>
+        <td>{{datalist.make}}</td>
+        <td>{{datalist.model}}</td>
+        <td>{{datalist.availability}}</td>
+        <td><span ng-if="datalist.availability === 'In Dealership'" class="buy"><a href=#{{datalist.name}}>Buy</a></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
